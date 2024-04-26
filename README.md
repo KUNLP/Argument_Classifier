@@ -12,7 +12,6 @@
     
 --output_dir : 저장된 모델을 불러오는 디렉토리. --checkpoint와 같이 엮임.
 
-
 ex)
 --output_dir : ./ 
 --checkpoint : 16000
