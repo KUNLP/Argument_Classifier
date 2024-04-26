@@ -35,7 +35,7 @@ def convert_only_sentence2tensordataset(dataset, pseudo, tokenizer, max_length, 
     # total_constituent_labels = []
     # with open('../data/IAM/claims/graphs/{}_constituent.txt'.format(mode), 'r', encoding='utf-8') as f:
     #     constituents = f.readlines()
-    # #테스트
+    # # 테스트
     # for constituent in constituents:
     #     constituent = ast.literal_eval(constituent.replace('\n', ''))
     #     total_constituent_labels.append(constituent+[-1]*(max_constituent_length-len(constituent)))
