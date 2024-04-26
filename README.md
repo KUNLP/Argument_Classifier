@@ -1,5 +1,4 @@
 
-
 학습 실행 방법
 
     python run.py --train_file TRAIN_FILE_PATH --save_dir SAVE_DIRECTORY_NAME --do_train True --init_weight True
