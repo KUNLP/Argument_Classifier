@@ -132,6 +132,7 @@ class GCNLayer(nn.Module):
             h = g.ndata['h']
             return self.linear(h)
 
+
 class MultiCGNLayer(nn.Module):
     def __init__(self):
         super(MultiCGNLayer, self).__init__()
