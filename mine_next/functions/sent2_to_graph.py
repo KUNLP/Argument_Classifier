@@ -41,7 +41,6 @@ class Tree(object):
             for x in c:
                 yield x
 
-
 def get_cons_tag_vocab(data_path):
     tag2id = {}
     with open(data_path) as f:
