@@ -46,7 +46,7 @@ def convert_only_sentence2tensordataset(dataset, pseudo, tokenizer, max_length, 
     #     idx = graph.split('/')[-1].split('_')[-1].split('.')[0]
     #     total_graph[int(idx)] = g
 
-    #평소 불러쓸때
+    # 평소 불러쓸때
     total_graph_first = {}
     total_graph_second = {}
     max_constituent_length = 600
