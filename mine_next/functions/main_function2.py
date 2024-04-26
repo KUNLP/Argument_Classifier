@@ -31,7 +31,6 @@ def random_downsampling(dataset):
     train_data = pd.concat([sampling_data, minor])
     return train_data
 
-
 def random_upsampling(dataset):
     major = dataset[dataset['claim_label'] == 'O']
     minor = dataset[dataset['claim_label'] == 'C']
@@ -95,7 +94,6 @@ def do_train(config, model, optimizer, scheduler, train_dataloader, epoch, globa
     accuracy = accuracy_score(total_corrects, total_predicts)
     return accuracy, np.mean(losses), global_step
 
-
 def do_evaluate(model, dev_dataloader, total_graph):
     total_predicts, total_corrects = [], []
     for step, batch in tqdm(enumerate(dev_dataloader), desc="do_evaluate", total=len(dev_dataloader)):
@@ -131,7 +129,6 @@ def do_evaluate(model, dev_dataloader, total_graph):
     print(classification_report(total_corrects, total_predicts, target_names=target_names, digits=4))
     accuracy = accuracy_score(total_corrects, total_predicts)
     return accuracy, total_predicts, result['class 1']['f1-score']
-
 
 def train(config, model, tokenizer):
 
@@ -184,7 +181,6 @@ def train(config, model, tokenizer):
             tokenizer.save_pretrained(output_dir)
             torch.save(config, os.path.join(output_dir, "training_args.bin"))
             max_claim_f1 = claim_f1
-
 
 def evaluate(config, model, tokenizer):
     dev_data = pd.read_csv(config.claim_dev, sep='\t', header=None, quoting=csv.QUOTE_NONE)
