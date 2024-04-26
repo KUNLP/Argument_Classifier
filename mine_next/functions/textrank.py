@@ -6,6 +6,7 @@ import csv
 import json, string
 from tqdm import tqdm
 
+
 def make_article_dict():
     topic_dir_list = os.listdir('../../data/IAM/origin/test')
     topic_dir_list = [os.path.join('../../data/IAM/origin/test', topic) for topic in topic_dir_list]
@@ -29,7 +30,6 @@ def make_article_dict():
 
     with open('../../data/IAM/origin/test_article_dict.json', 'w', encoding='utf-8') as outfile:
         json.dump(article_dict, outfile, indent='\t', ensure_ascii=False)
-
 
 def make_pseudo_topic_with_textrank():
     printable = set(string.printable)
