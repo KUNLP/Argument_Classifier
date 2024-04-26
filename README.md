@@ -17,4 +17,3 @@ ex)
 --checkpoint : 16000
 ./checkpoint-16000 안에 들어있는 모델 불러옴
 
-
