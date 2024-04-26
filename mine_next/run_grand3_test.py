@@ -8,6 +8,7 @@ from mine_next.model.modeling import RobertaForClassification, RobertaForSTANCY,
 from mine_next.model.modeling import RobertaReflectGraphClassification, RobertaReflectGraphWithGrandEdgeClassification
 from mine_next.functions.sent_to_graph import get_cons_tag_vocab
 
+
 def create_model(args):
     config = AutoConfig.from_pretrained(
         args.language_model,
@@ -26,14 +27,12 @@ def create_model(args):
     )
     return config, tokenizer, model
 
-
 def set_seed(args):
     random.seed(args.seed)
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(args.seed)
-
 
 def main(args):
     set_seed(args)
@@ -46,7 +45,6 @@ def main(args):
         evaluate(args, model, tokenizer)
     elif args.mode == 'test':
         test(args, model, tokenizer)
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='main')
