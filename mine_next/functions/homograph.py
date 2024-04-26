@@ -108,7 +108,6 @@ class Tree(object):
             for x in c:
                 yield x
 
-
 def get_cons_tag_vocab(data_path):
     tag2id = {}
     with open(data_path) as f:
@@ -116,7 +115,6 @@ def get_cons_tag_vocab(data_path):
             tag, idx = line.strip().split('\t')
             tag2id[tag] = int(idx)
     return tag2id
-
 
 def span_starts_ends(node: Tree):
     if len(node.children) == 0:
@@ -126,7 +124,6 @@ def span_starts_ends(node: Tree):
 
     node.start = node.children[0].start
     node.end = node.children[-1].end
-
 
 def constituent_to_tree(tokenizer, constituent_string, sentence, word_offset, node_offset, num_orders=2):
     constituents = []
@@ -196,7 +193,7 @@ def constituent_to_tree(tokenizer, constituent_string, sentence, word_offset, no
         parent_idx = node.parent.idx if node.parent else -1
         constituent_sequence.append((node.idx, node.start, node.end, node.type, parent_idx))
         if parent_idx != -1:
-            constituent_edge[node.idx - node_offset_original][parent_idx - node_offset_original] = 1 #바로 아래 코드랑 보면 양방향 엣지 포함하는거임
+            constituent_edge[node.idx - node_offset_original][parent_idx - node_offset_original] = 1 # 바로 아래 코드랑 보면 양방향 엣지 포함하는거임
             constituent_edge[parent_idx - node_offset_original][node.idx - node_offset_original] = 1
     # 이부분은 한계층 건너 뛰어서 엣지 이어 주는 식임. 원래 S랑 PP는 안이어져있는데 여기서 이어줌
     high_order_sequence = [constituent_sequence]
@@ -213,7 +210,6 @@ def constituent_to_tree(tokenizer, constituent_string, sentence, word_offset, no
             constituent_edge[parent_node[-1] - node_offset_original][idx - node_offset_original] = 1
         high_order_sequence.append(new_constituent_sequence)
     return high_order_sequence, word_offset, node_offset
-
 
 def final_graph(constituent_list, graph):
     cons_tag2id = get_cons_tag_vocab('../../data/IAM/constituent_gold_vocab.txt')
